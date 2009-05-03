@@ -4,6 +4,8 @@ while $_
     numero = case $_[letra]
       when 32     then ' '
       when 45     then '-'
+      when 48     then 0
+      when 49     then 1
       when 65..67 then 2
       when 68..70 then 3
       when 71..73 then 4
