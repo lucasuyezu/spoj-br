@@ -6,14 +6,11 @@ class Bapostas
     while m < n
       gets.split.each { |e| a[m] = e.to_i; m += 1 }
     end
-    result = 0
-    for i in 0...a.size
-      sum = a[i]
-      result = sum if sum > result
-      for j in (i+1)...a.size
-        sum += a[j]
-        result = sum if sum > result
-      end
+    result = max_ending_here = 0
+    a.each do |e|
+      max_ending_here += e
+      max_ending_here = 0 if max_ending_here < 0
+      result = max_ending_here if result < max_ending_here
     end
     puts result > 0 ? "The maximum winning streak is #{result}." : "Losing streak."
   end
